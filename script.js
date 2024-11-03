@@ -2,8 +2,7 @@
 let humanScore = 0
 let computerScore = 0
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+
 
 function getComputerChoice() {
     
@@ -34,7 +33,7 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
         
-        console.log("Starting round..")
+        console.log(`Computer: ${computerChoice}, Human: ${humanChoice}`)
         
     } else {
         console.log("Error: Choose Rock, Paper or Scissors. Case insensitive.")
@@ -63,4 +62,23 @@ function playRound(humanChoice, computerChoice) {
     
 }
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+    for (i = 0; i < 5; i++) {
+
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        console.log(`Starting round ${i + 1}..`)
+
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore < computerScore) {
+        console.log("You lost the game!")
+    } else {
+        console.log("You won the game!")
+    }
+
+}
+
+playGame()
