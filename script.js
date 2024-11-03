@@ -2,6 +2,8 @@
 let humanScore = 0
 let computerScore = 0
 
+//const humanSelection = getHumanChoice();
+//const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     
@@ -21,11 +23,10 @@ function getHumanChoice() {
 
     const choice = prompt("Rock, Paper or Scissors?")
 
-    if (choice == "Rock" || choice == "Paper" || choice == "Scissors") {    
-        return choice;
-    } else {
-        return "Error: Choose between 'Rock', 'Paper' or 'Scissors'"
-    }
+    return choice
 
 }
 
+function playRound(humanChoice, computerChoice) {
+    
+}
