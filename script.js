@@ -2,8 +2,8 @@
 let humanScore = 0
 let computerScore = 0
 
-//const humanSelection = getHumanChoice();
-//const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     
@@ -29,4 +29,38 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     
+    humanChoice = humanChoice.toLowerCase()
+    computerChoice = computerChoice.toLowerCase()
+
+    if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
+        
+        console.log("Starting round..")
+        
+    } else {
+        console.log("Error: Choose Rock, Paper or Scissors. Case insensitive.")
+        return
+    }
+
+    if (humanChoice == "rock") {
+
+        return computerChoice == "paper" ? console.log("You lose! Paper beats Rock.") :
+        computerChoice == "scissors" ? console.log("You win! Rock beats Scissors!") :
+        console.log("It's a tie - Rock vs. Rock.");
+
+    } else if (humanChoice == "paper") {
+
+        return computerChoice == "rock" ? console.log("You win! Paper beats Rock") :
+        computerChoice == "scissors" ? console.log("You lose! Scissors beats paper") :
+        console.log("It's a tie - Paper vs. Paper.");
+
+    } else {
+
+        return computerChoice == "rock" ? console.log("You lose! Rock beats Scissors.") :
+        computerChoice == "paper" ? console.log("You win! Scissor beats Paper.") :
+        console.log("It's a tie - Scissors vs. Scissors.")
+
+    }
+    
 }
+
+playRound(humanSelection, computerSelection);
