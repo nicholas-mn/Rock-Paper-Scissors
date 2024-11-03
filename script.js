@@ -73,7 +73,9 @@ function playGame() {
         playRound(humanSelection, computerSelection);
     }
 
-    if (humanScore < computerScore) {
+    if (humanScore == computerScore) {
+        console.log("The game is a tie!")
+    } else if (humanScore < computerScore) {
         console.log("You lost the game!")
     } else {
         console.log("You won the game!")
