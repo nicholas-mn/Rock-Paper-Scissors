@@ -16,7 +16,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
 
-    const choice = prompt("Rock, Paper or Scissor?")
+    const choice = prompt("Rock, Paper or Scissors?")
 
     if (choice == "Rock" || choice == "Paper" || choice == "Scissors") {    
         return choice;
