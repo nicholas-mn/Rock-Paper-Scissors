@@ -6,6 +6,8 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
+const resultsDiv = document.querySelector("#results");
+
 rockBtn.addEventListener("click", () => {
     const humanSelection = "rock";
     const computerSelection = getComputerChoice();
@@ -65,21 +67,21 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice == "rock") {
 
-        return computerChoice == "paper" ? (++computerScore, console.log("You lose! Paper beats Rock."))
-        : computerChoice == "scissors" ? (++humanScore, console.log("You win! Rock beats Scissors!"))
-        : console.log("It's a tie - Rock vs. Rock.");
+        return computerChoice == "paper" ? (++computerScore, resultsDiv.textContent = "You lose! Paper beats Rock.")
+        : computerChoice == "scissors" ? (++humanScore, resultsDiv.textContent = "You win! Rock beats Scissors!")
+        : resultsDiv.textContent = "It's a tie - Rock vs. Rock.";
 
     } else if (humanChoice == "paper") {
 
-        return computerChoice == "rock" ? (++humanScore, console.log("You win! Paper beats Rock")) 
-        : computerChoice == "scissors" ? (++computerScore, console.log("You lose! Scissors beats paper"))
-        : console.log("It's a tie - Paper vs. Paper.");
+        return computerChoice == "rock" ? (++humanScore, resultsDiv.textContent = "You win! Paper beats Rock") 
+        : computerChoice == "scissors" ? (++computerScore, resultsDiv.textContent = "You lose! Scissors beats paper")
+        : resultsDiv.textContent = "It's a tie - Paper vs. Paper.";
 
     } else {
 
-        return computerChoice == "rock" ? (++computerScore, console.log("You lose! Rock beats Scissors."))
-        : computerChoice == "paper" ? (++humanScore, console.log("You win! Scissor beats Paper."))
-        : console.log("It's a tie - Scissors vs. Scissors.")
+        return computerChoice == "rock" ? (++computerScore, resultsDiv.textContent = "You lose! Rock beats Scissors.")
+        : computerChoice == "paper" ? (++humanScore, resultsDiv.textContent = "You win! Scissor beats Paper.")
+        : resultsDiv.textContent = "It's a tie - Scissors vs. Scissors.";
 
     }
     
