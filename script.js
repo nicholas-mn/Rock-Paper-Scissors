@@ -55,9 +55,6 @@ function playRound(humanChoice, computerChoice) {
         
         console.log(`Computer: ${computerChoice}, Human: ${humanChoice}`)
         
-    } else {
-        console.log("Error: Choose Rock, Paper or Scissors. Case insensitive.")
-        return
     }
 
     if (humanChoice == "rock") {
