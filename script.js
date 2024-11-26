@@ -6,6 +6,27 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
+rockBtn.addEventListener("click", () => {
+    const humanSelection = "rock";
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+});
+
+paperBtn.addEventListener("click", () => {
+    const humanSelection = "paper";
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+});
+
+scissorsBtn.addEventListener("click", () => {
+    const humanSelection = "scissors";
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+});
+
 function getComputerChoice() {
     
     const roll = Math.floor(Math.random() * 100)
