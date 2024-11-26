@@ -87,6 +87,13 @@ function updateScores() {
     humanScoreUi.textContent = humanScore;
     computerScoreUi.textContent = computerScore;
 
+    // failsafe so the user doesn't just spam click into the timeout and mess up the logic
+    if (humanScore === 5 || computerScore === 5) {
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    }
+
     // had to use a timeout, without it the UI didn't change in time before the alert came up.
     setTimeout(function() {
         if (humanScore === 5) {
@@ -95,12 +102,20 @@ function updateScores() {
             humanScore = 0;
             computerScore = 0;
             updateScores(); 
+
+            rockBtn.disabled = false;
+            paperBtn.disabled = false;
+            scissorsBtn.disabled = false;
         } else if (computerScore === 5) {
             alert("Too bad, you lost!");
             resultsDiv.textContent = "Click above to play the game";
             humanScore = 0;
             computerScore = 0;
             updateScores();
+
+            rockBtn.disabled = false;
+            paperBtn.disabled = false;
+            scissorsBtn.disabled = false;
         }
     }, 200);
 }
