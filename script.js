@@ -114,5 +114,5 @@ function updateScores() {
             paperBtn.disabled = false;
             scissorsBtn.disabled = false;
         }
-    }, 200);
+    }, 100);
 }
