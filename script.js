@@ -34,27 +34,16 @@ function getComputerChoice() {
     const roll = Math.floor(Math.random() * 100)
 
     if (roll <= 33) {
-        return "Rock"
+        return "rock"
     } else if (roll <= 66) {
-        return "Paper"
+        return "paper"
     } else {
-        return "Scissors"
+        return "scissors"
     }
 
 }
 
-function getHumanChoice() {
-
-    const choice = prompt("Rock, Paper or Scissors?")
-
-    return choice
-
-}
-
 function playRound(humanChoice, computerChoice) {
-    
-    humanChoice = humanChoice.toLowerCase()
-    computerChoice = computerChoice.toLowerCase()
 
     if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
         
@@ -87,25 +76,3 @@ function playRound(humanChoice, computerChoice) {
     
 }
 
-// function playGame() {
-//     for (i = 0; i < 5; i++) {
-
-//         let humanSelection = getHumanChoice();
-//         let computerSelection = getComputerChoice();
-
-//         console.log(`Starting round ${i + 1}..`)
-
-//         playRound(humanSelection, computerSelection);
-//     }
-
-//     if (humanScore == computerScore) {
-//         console.log("The game is a tie!")
-//     } else if (humanScore < computerScore) {
-//         console.log("You lost the game!")
-//     } else {
-//         console.log("You won the game!")
-//     }
-
-// }
-
-// playGame()
