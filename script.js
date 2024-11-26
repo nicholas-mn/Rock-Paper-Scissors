@@ -8,11 +8,15 @@ const scissorsBtn = document.querySelector("#scissors");
 
 const resultsDiv = document.querySelector("#results");
 
+const humanScoreUi = document.querySelector("#humanScore");
+const computerScoreUi = document.querySelector("#computerScore");
+
 rockBtn.addEventListener("click", () => {
     const humanSelection = "rock";
     const computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
+    updateScores()
 });
 
 paperBtn.addEventListener("click", () => {
@@ -20,6 +24,7 @@ paperBtn.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
+    updateScores()
 });
 
 scissorsBtn.addEventListener("click", () => {
@@ -27,6 +32,7 @@ scissorsBtn.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
+    updateScores()
 });
 
 function getComputerChoice() {
@@ -76,3 +82,25 @@ function playRound(humanChoice, computerChoice) {
     
 }
 
+function updateScores() {
+    
+    humanScoreUi.textContent = humanScore;
+    computerScoreUi.textContent = computerScore;
+
+    // had to use a timeout, without it the UI didn't change in time before the alert came up.
+    setTimeout(function() {
+        if (humanScore === 5) {
+            alert("Congratulations, you win!");
+            resultsDiv.textContent = "Click above to play the game";
+            humanScore = 0;
+            computerScore = 0;
+            updateScores(); 
+        } else if (computerScore === 5) {
+            alert("Too bad, you lost!");
+            resultsDiv.textContent = "Click above to play the game";
+            humanScore = 0;
+            computerScore = 0;
+            updateScores();
+        }
+    }, 200);
+}
